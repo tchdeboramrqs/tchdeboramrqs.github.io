@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Airport English A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf0f6;--card:#fff;--ink:#10233a;--mute:#5a6b7e;--line:#c9d4e0;--acc:#ffc933;--accink:#10233a;--ok:#1d7a4d;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1726;--card:#13283f;--ink:#e8eef5;--mute:#9fb0c3;--line:#2b4260;--ok:#5fd39a;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0b1726;--card:#13283f;--ink:#e8eef5;--mute:#9fb0c3;--line:#2b4260;--ok:#5fd39a;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 Barlow,system-ui,sans-serif}
+h1,h2,.line,.stub b,.word,.row b{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:.01em}
+.wrap{max-width:860px;margin:0 auto;padding:16px}
+header h1{font-size:2.1rem;margin:4px 0 0;line-height:1.1}
+header p{margin:2px 0 12px;color:var(--mute)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px}
+nav button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 12px;font:600 .9rem Barlow,sans-serif;cursor:pointer}
+nav button[aria-current="true"]{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h2{font-size:1.8rem;margin:8px 0 2px}
+.goal{margin:0 0 14px;color:var(--mute)}
+.btn{border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:8px;padding:8px 14px;font:600 .95rem Barlow,sans-serif;cursor:pointer}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:disabled{opacity:.4;cursor:default}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:6px 0 12px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:3px;transition:width .25s}
+.pass{display:flex;background:var(--card);border:2px solid var(--ink);border-radius:14px;overflow:hidden}
+.stub{flex:0 0 110px;border-right:3px dashed var(--ink);padding:14px 10px;background:var(--acc);color:var(--accink);display:flex;flex-direction:column;justify-content:space-between;text-align:center}
+.stub b{font-size:1.25rem;line-height:1.1}
+.main{flex:1;padding:16px 18px;min-width:0}
+.line{font-size:2rem;line-height:1.15;margin:4px 0 12px}
+.cue{font-size:1.2rem;font-weight:600;margin:4px 0 12px}
+.tag{margin:0 0 6px;font-size:.95rem;color:var(--mute);font-weight:600}
+.ic{border:0;background:var(--line);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1rem;vertical-align:middle;color:var(--ink);flex:none}
+.ans,.hint{border-radius:8px;padding:8px 12px;margin:8px 0;background:var(--bg)}
+.ans small,.hint small{display:block;color:var(--mute);font-weight:600}
+.ans p{margin:0 0 6px;font-size:1.25rem;font-weight:600}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;min-height:120px;padding:10px;cursor:pointer;text-align:center;font:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.card .e{font-size:2.2rem}
+.card .pt{color:var(--mute)}
+.card .word{font-size:1.6rem;line-height:1.1}
+.card.on{background:var(--ink);color:var(--bg)}
+.card.on .pt{color:var(--bg)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.chips button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;font:600 .95rem Barlow,sans-serif;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--acc);color:var(--accink);border-color:var(--acc)}
+.bank button{border-radius:8px;border:2px solid var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}.stub{flex-basis:78px}.line{font-size:1.65rem}}
+.cols h3{margin:0 0 8px;font-size:1.1rem}
+.ph{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:8px;flex-wrap:wrap}
+.ph span{flex:1;min-width:140px;font-weight:600}
+.ph em{flex-basis:100%;color:var(--ok);font-style:normal;padding-left:42px}
+.row{display:flex;gap:10px;align-items:center;margin:8px 0;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.row.you{border-left:6px solid var(--acc)}
+.row b{flex:0 0 66px;font-size:1.15rem}
+.row p{flex:1;margin:0;font-size:1.2rem;line-height:1.9}
+.bl{display:inline-block;white-space:nowrap}
+.bl input{border:0;border-bottom:2px solid var(--ink);background:transparent;color:inherit;font:600 1.1rem Barlow,sans-serif;text-align:center;padding:0 2px;min-width:3ch}
+.bl.ok input{border-color:var(--ok)}.bl.ok::after{content:"✓";color:var(--ok);font-weight:700}
+.bl.no input{border-color:var(--bad);border-bottom-style:dashed}.bl.no::after{content:"✗";color:var(--bad);font-weight:700}
+.score{font-weight:600;font-size:1.15rem;margin:10px 0 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+td:first-child{width:36px;color:var(--mute)}
+.scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Airport English A1</h1>
+<p>Listen, speak, and complete the dialogues. Tap 🔊 to hear a sentence.</p>
+</header>
+<nav id="nav" aria-label="Lesson parts"></nav>
+<main id="main"></main>
+</div>
+<script>
+var S=[
+{id:"warm",n:"Warm-up",g:"Answer in English. Short answers are OK.",type:"rp",steps:[
+{t:"Are you going to the USA?",a:"Yes, I am.",f:"Yes or no?"},
+{t:"Is this your first flight?",a:"Yes, it is. / No, it is not.",f:"Yes, it is."},
+{t:"Do you have a passport?",a:"Yes, I do.",f:"Yes, I do."}]},
+{id:"vocab",n:"Vocabulary",g:"Look at the picture. Say the word in English. Then tap the card to check.",type:"vocab"},
+{id:"phr",n:"Useful phrases",g:"Listen and repeat. Tap PT to see the Portuguese.",type:"phr"},
+{id:"chk",n:"Check-in",g:"You are the passenger. Listen and answer.",type:"rp",steps:[
+{t:"May I see your passport?",a:"Here you go.",f:"Say: Here you go."},
+{t:"Where are you flying today?",a:"I'm going to New York.",f:"I'm going to + city."},
+{t:"Are you checking any bags?",a:"Yes, one bag.",f:"Yes or no? How many?"},
+{t:"Please put your bag on the scale.",a:"Here you go.",f:"Say: Here you go."},
+{t:"Your bag is too heavy. Please take something out.",a:"OK. I'll take out a book.",f:"OK. A book."},
+{t:"Window seat or aisle seat?",a:"Window seat, please.",f:"Window... please."},
+{t:"Here is your boarding pass. Terminal C, Gate 54.",a:"Terminal C, Gate 54. Thank you.",f:"Repeat: Gate 54."},
+{t:"Turn left at the coffee shop. Security is in front of you.",a:"OK. Thank you!",f:"Say: Thank you."}]},
+{id:"sec",n:"Security",g:"You are the passenger. Listen and answer.",type:"rp",steps:[
+{t:"Passport and boarding pass, please.",a:"Here you go.",f:"Say: Here you go."},
+{t:"Please remove your coat and your belt.",a:"OK.",f:"Say: OK."},
+{t:"Your shoes too. Put them in the bin.",a:"OK.",f:"Say: OK."},
+{t:"Please empty your pockets.",a:"OK. My phone.",f:"What is in your pockets?"},
+{t:"Do you have any liquids in your bag?",a:"Yes, I have a water bottle.",f:"Yes, I have a..."},
+{t:"The bottle is too big. Drink it or throw it away.",a:"I'll throw it away.",f:"Throw it away."},
+{t:"Do you have a laptop?",a:"Yes, in my bag.",f:"Yes, I do."},
+{t:"Put your bag on the conveyor belt. Step through the scanner.",a:"OK.",f:"Say: OK."},
+{t:"Please step to the side. Are you wearing any jewelry?",a:"Yes, my necklace. Sorry.",f:"Yes, my..."},
+{t:"You're all clear. Have a great flight.",a:"Thank you!",f:"Say: Thank you."}]},
+{id:"gate",n:"Gate",g:"You are the passenger. Listen, answer, and ask.",type:"rp",steps:[
+{t:"Flight 803 is now boarding.",a:"That's my flight.",f:"Say: That's my flight."},
+{t:"Boarding pass and ID, please.",a:"Here you go.",f:"Say: Here you go."},
+{t:"Your seat is row 38, seat B.",a:"Row 38, seat B. Thank you.",f:"Repeat: Row 38, seat B."},
+{c:"You need to find your gate. Ask where Gate 54 is.",a:"Excuse me, where is Gate 54?",r:"Turn left. It is on your right.",f:"Excuse me, where is...?"},
+{c:"Ask how long the flight is.",a:"How long is the flight?",r:"About six hours.",f:"How long is...?"}]},
+{id:"fin",n:"Simulation",g:"Complete each dialogue with the key words. Then read it aloud.",type:"fin"},
+{id:"top",n:"Top 10",g:"Say each phrase. Then tap 🔊 to check.",type:"top"}
+];
+var D=[
+{n:"Check-in",x:["coat","liquids"],l:[
+["O","May I see your {passport}?"],["Y","Here you {go}."],
+["O","Where are you {going} today?"],["Y","I'm going to New York."],
+["O","Are you checking any {bags}?"],["Y","Yes, one bag."],
+["O","Please put it on the {scale}."],
+["O","Your bag is too {heavy}. Please take something out."],["Y","OK. I'll put it in my {carry-on}."],
+["O","Window seat or aisle seat?"],["Y","{Window} seat, please."],
+["O","You are at {Terminal} C, {Gate} 54."]]},
+{n:"Security",x:["gate","scale"],l:[
+["O","{Passport} and boarding pass, please."],["Y","Here you go."],
+["O","Please remove your {coat} and your {belt}."],["Y","OK."],
+["O","Put your {shoes} in the {bin}."],["Y","OK."],
+["O","Please empty your {pockets}."],
+["O","Do you have any {liquids} in your bag?"],["Y","Yes, I have a water bottle."],
+["O","Do you have a {laptop}?"],["Y","Yes, in my bag."],
+["O","Put your bag on the {conveyor} belt. Please step through the {scanner}."]]},
+{n:"Gate",x:["terminal","bag"],l:[
+["O","Flight 803 is now {boarding}."],["Y","That's my {flight}."],
+["O","Boarding {pass} and ID, please."],["Y","Here you go."],
+["O","Your seat is {row} 38, {seat} B."],
+["Y","Excuse me, where is {Gate} 54?"],
+["O","Turn {left}. It is on your {right}."],
+["Y","How {long} is the flight?"],["O","About six {hours}."]]},
+{n:"Baggage claim",x:["gate","seat"],l:[
+["Y","Excuse me, where do I pick up my {bag}?"],
+["O","What is your {flight} number?"],["Y","Flight 803."],
+["O","Your bag is on {carousel} 4."],
+["Y","Where is the {baggage} claim?"],
+["O","It is right around the {corner}."],["Y","Thank you!"]]},
+{n:"Immigration",x:["gate","scale"],l:[
+["O","{Passport}, please."],["Y","Here you {go}."],
+["O","What is the {purpose} of your visit?"],["Y","I'm on {vacation}."],
+["O","How {long} will you stay?"],["Y","One {week}."],
+["O","Where will you {stay}?"],["Y","At a {hotel}."],
+["O","Do you have anything to {declare}?"],["Y","No, {nothing}."]]}
+];
+var V=[
+["Documents and flight",[["🛂","passaporte","passport"],["🎫","cartão de embarque","boarding pass"],["✈️","voo","flight"],["🏢","terminal","terminal"],["🚪","portão","gate"],["🪟","assento na janela","window seat"]]],
+["Bags and security",[["🧳","despachar a mala","check a bag"],["🎒","bagagem de mão","carry-on"],["👜","mala","bag"],["🏋️","peso","weight"],["⚖️","balança","scale"],["🛃","segurança","security"],["📡","scanner","scanner"],["🧺","caixa/cesto","bin"],["➡️","esteira","conveyor belt"]]],
+["Items and arrival",[["🧥","casaco","coat"],["👖","cinto","belt"],["👟","sapatos","shoes"],["🫳","bolsos","pockets"],["💧","líquidos","liquids"],["💻","notebook","laptop"],["🛫","embarque","boarding"],["🧳","retirada de bagagem","baggage claim"],["🔄","esteira de bagagem","carousel"]]]];
+var H=[["May I see your passport?","Posso ver seu passaporte?"],["Are you checking any bags?","Você vai despachar alguma mala?"],["Your bag is too heavy.","Sua mala está pesada demais."],["Please remove your coat and belt.","Por favor, tire o casaco e o cinto."],["Do you have any liquids?","Você tem líquidos?"],["Please step to the side.","Por favor, venha para o lado."],["What is the purpose of your visit?","Qual o motivo da sua visita?"],["Anything to declare?","Algo a declarar?"]];
+var Y=[["Here you go.","Aqui está."],["Yes, one bag.","Sim, uma mala."],["Where is Gate 54?","Onde fica o portão 54?"],["Where do I pick up my bag?","Onde eu pego minha mala?"],["Can you repeat, please?","Pode repetir, por favor?"],["I'm here on vacation.","Estou aqui de férias."]];
+var T=[["May I see your passport?","Posso ver seu passaporte?"],["Here you go.","Aqui está."],["Are you checking any bags?","Você vai despachar alguma mala?"],["Your bag is too heavy.","Sua mala está pesada demais."],["Please remove your coat and belt.","Por favor, tire o casaco e o cinto."],["Do you have any liquids in your bag?","Você tem líquidos na bolsa?"],["Where is Gate 54?","Onde fica o portão 54?"],["Where do I pick up my bag?","Onde eu pego minha mala?"],["What is the purpose of your visit?","Qual o motivo da sua visita?"],["Can you repeat, please?","Pode repetir, por favor?"]];
+var cur=0,st={},grp=0,fd=0,fs={},lf=null;
+function $(s){return document.querySelector(s)}
+function say(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function sp(t){return '<button class="ic" data-say="'+t+'" aria-label="Listen">🔊</button>'}
+function sh(a){return a.map(function(x){return[Math.random(),x]}).sort(function(p,q){return p[0]-q[0]}).map(function(x){return x[1]})}
+function A(d){var r=[];d.l.forEach(function(l){(l[1].match(/\{[^}]+\}/g)||[]).forEach(function(m){r.push(m.slice(1,-1))})});return r}
+function nav(){$("#nav").innerHTML=S.map(function(s,i){return '<button data-act="tab" data-i="'+i+'"'+(i==cur?' aria-current="true"':'')+'>'+(i+1)+'. '+s.n+'</button>'}).join("")}
+function rp(s){
+ var o=st[s.id]||(st[s.id]={i:0,a:0,h:0}),p=s.steps[o.i],n=s.steps.length;
+ var h='<div class="bar"><i style="width:'+((o.i+1)/n*100)+'%"></i></div><div class="pass"><div class="stub"><b>'+s.n+'</b><span>'+(o.i+1)+' / '+n+'</span></div><div class="main">';
+ h+=p.c?'<p class="cue">'+p.c+'</p>':'<p class="line">'+p.t+' '+sp(p.t)+'</p>';
+ if(o.h)h+='<div class="hint"><small>Hint</small>'+p.f+'</div>';
+ if(o.a){h+='<div class="ans"><small>Example answer</small><p>'+p.a+' '+sp(p.a)+'</p>';
+  if(p.r)h+='<small>The officer says</small><p>'+p.r+' '+sp(p.r)+'</p>';
+  h+='</div>'}
+ h+='<div class="acts"><button class="btn" data-act="hint">Hint</button><button class="btn p" data-act="ans">Show answer</button><button class="btn" data-act="prev"'+(o.i?'':' disabled')+'>Back</button><button class="btn" data-act="next"'+(o.i<n-1?'':' disabled')+'>Next</button></div></div></div>';
+ if(o.i==n-1)h+='<p class="goal">Great job! Go to the next tab.</p>';
+ return h}
+function vocab(){
+ var h='<div class="chips">'+V.map(function(g,i){return '<button data-act="grp" data-i="'+i+'" aria-pressed="'+(i==grp)+'">'+g[0]+'</button>'}).join("")+'</div><div class="grid">';
+ V[grp][1].forEach(function(w){h+='<button class="card" data-act="flip" data-w="'+w[2]+'"><span class="e">'+w[0]+'</span><span class="pt">'+w[1]+'</span><span class="word" hidden></span></button>'});
+ return h+'</div>'}
+function phr(){
+ function col(t,a){return '<div><h3>'+t+'</h3>'+a.map(function(x){return '<div class="ph">'+sp(x[0])+'<span>'+x[0]+'</span><button class="btn" data-act="pt" data-t="'+x[1]+'">PT</button></div>'}).join("")+'</div>'}
+ return '<div class="cols">'+col("You hear (officer)",H)+col("You say (passenger)",Y)+'</div>'}
+function topTen(){
+ return '<div class="scroll"><table>'+T.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td><b>'+x[0]+'</b></td><td>'+x[1]+'</td><td>'+sp(x[0])+'</td></tr>'}).join("")+'</table></div>'}
+function fin(){
+ var d=D[fd],o=fs[fd]||(fs[fd]={v:{},c:0,b:null});
+ if(!o.b)o.b=sh(A(d).map(function(a){return a.toLowerCase()}).concat(d.x));
+ var h='<div class="chips">'+D.map(function(x,i){return '<button data-act="dlg" data-i="'+i+'" aria-pressed="'+(i==fd)+'">'+x.n+'</button>'}).join("")+'</div>';
+ h+='<p class="tag">Word bank: tap a word to fill the next blank, or type it.</p><div class="chips bank">'+o.b.map(function(w){return '<button data-act="bank" data-w="'+w+'">'+w+'</button>'}).join("")+'</div>';
+ var k=0,good=0;
+ d.l.forEach(function(l){
+  var t=l[1].split(/(\{[^}]+\})/).map(function(p){
+   if(p.charAt(0)!="{")return p;
+   var a=p.slice(1,-1),v=o.v[k]||"",c="";
+   if(o.c){c=v.trim().toLowerCase()==a.toLowerCase()?"ok":"no";if(c=="ok")good++}
+   var r='<span class="bl '+c+'"><input data-k="'+k+'" value="'+v.replace(/"/g,"&quot;")+'" style="width:'+(a.length+3)+'ch" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Blank '+(k+1)+'"></span>';
+   k++;return r}).join("");
+  h+='<div class="row '+(l[0]=="Y"?"you":"off")+'"><b>'+(l[0]=="Y"?"You":"Officer")+'</b><p>'+t+'</p>'+(o.c?sp(l[1].replace(/[{}]/g,"")):"")+'</div>'});
+ if(o.c)h+='<p class="score">'+good+' / '+k+' correct. Now read the dialogue aloud with 🔊.</p>';
+ h+='<div class="acts"><button class="btn p" data-act="chk">Check</button><button class="btn" data-act="show">Show answers</button><button class="btn" data-act="rst">Start again</button></div>';
+ return h}
+function render(){
+ var s=S[cur];nav();
+ $("#main").innerHTML='<h2>'+s.n+'</h2><p class="goal">'+s.g+'</p>'+(s.type=="rp"?rp(s):s.type=="vocab"?vocab():s.type=="phr"?phr():s.type=="fin"?fin():topTen())}
+document.addEventListener("focusin",function(e){var k=e.target.dataset&&e.target.dataset.k;if(k!=null)lf=+k});
+document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.dataset.k;if(k==null)return;fs[fd].v[k]=e.target.value;e.target.parentNode.className="bl"});
+document.addEventListener("click",function(e){
+ var el=e.target.closest("[data-say],[data-act]");if(!el)return;
+ if(el.dataset.say&&!el.dataset.act){say(el.dataset.say);return}
+ var a=el.dataset.act,s=S[cur],o=st[s.id];
+ if(a=="tab"){cur=+el.dataset.i;render();window.scrollTo(0,0);return}
+ if(a=="grp"){grp=+el.dataset.i;render();return}
+ if(a=="flip"){var w=el.querySelector(".word"),on=el.classList.toggle("on");w.hidden=!on;w.textContent=el.dataset.w;if(on)say(el.dataset.w);return}
+ if(a=="pt"){var n=el.parentNode.querySelector("em");if(n){n.remove()}else{var m=document.createElement("em");m.textContent=el.dataset.t;el.parentNode.appendChild(m)}return}
+ if(a=="dlg"){fd=+el.dataset.i;lf=null;render();return}
+ if(a=="chk"){fs[fd].c=1;render();return}
+ if(a=="show"){var an=A(D[fd]);an.forEach(function(x,i){fs[fd].v[i]=x});fs[fd].c=1;render();return}
+ if(a=="rst"){fs[fd]=null;lf=null;render();return}
+ if(a=="bank"){
+  var ins=[].slice.call(document.querySelectorAll("input[data-k]"));
+  var t=(lf!=null&&ins[lf]&&!ins[lf].value)?ins[lf]:ins.filter(function(i){return !i.value})[0];
+  if(!t)return;
+  t.value=el.dataset.w;fs[fd].v[t.dataset.k]=el.dataset.w;t.parentNode.className="bl";lf=null;return}
+ if(a=="ans")o.a=1;
+ if(a=="hint")o.h=1;
+ if(a=="next"){o.i++;o.a=0;o.h=0}
+ if(a=="prev"){o.i--;o.a=0;o.h=0}
+ render()});
+render();
+</script>
+</body>
+</html>
